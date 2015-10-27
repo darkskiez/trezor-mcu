@@ -95,7 +95,7 @@ int sshMessageSignEd25519(const uint8_t *message, size_t message_len, const uint
 {
 	signature[0] = 0; // prefix: pad with zero, so all signatures are 65 bytes
 	ed25519_sign(message, message_len, privkey, publickey, signature + 1);
-	return 1;
+	return 0;
 }
 
 int cryptoMessageSign(const uint8_t *message, size_t message_len, const uint8_t *privkey, uint8_t *signature)
